@@ -1,1 +1,15 @@
 rootProject.name = 'assessment'
+
+//DOMAIN
+include ':model'
+include ':usecase'
+project(':model').projectDir = file('domain/model')
+project(':usecase').projectDir = file('domain/usecase')
+//APPLICATION
+include '::app-service'
+project(':app-service').projectDir = file('application/app-service')
+//INFRASTRUCTURE
+include ':reactive-web'
+include ':reactive-persistence'
+project(':reactive-web').projectDir = file('./infrastructure/entry-points/reactive-web')
+project(':reactive-persistence').projectDir = file('infrastructure/driven-adapters/reactive-persistence')

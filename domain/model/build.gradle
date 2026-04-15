@@ -1,0 +1,6 @@
+dependencies {
+    implementation 'io.projectreactor:reactor-core'
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+}

@@ -1,0 +1,312 @@
+{
+  "info": {
+    "_postman_id": "a357d8d4-9af1-4d22-8b61-a5923230feb4",
+    "name": "Accenture-skill-test",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "12878701",
+    "_collection_link": "https://go.postman.co/collection/12878701-a357d8d4-9af1-4d22-8b61-a5923230feb4?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Franchise",
+      "item": [
+        {
+          "name": "Save",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"nueva franchisquete\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/v1/franchise/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "v1",
+                "franchise",
+                "save"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Name",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": \"036032a4-546f-4cc3-ae91-ee268b05736a\",\n    \"newName\": \"New Franchise Name\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/v1/franchise/update-name",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "v1",
+                "franchise",
+                "update-name"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Top Stock Report",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/v1/franchise/top-stock-products?franchise_Id=550e8400-e29b-41d4-a716-446655440000",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "v1",
+                "franchise",
+                "top-stock-products"
+              ],
+              "query": [
+                {
+                  "key": "franchise_Id",
+                  "value": "550e8400-e29b-41d4-a716-446655440000"
+                },
+                {
+                  "key": "franchise_Id",
+                  "value": "036032a4-546f-4cc3-ae91-ee268b05736a",
+                  "description": "empty",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Branch",
+      "item": [
+        {
+          "name": "Save",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"franchiseId\": \"036032a4-546f-4cc3-ae91-ee268b05736a\",\n    \"name\": \"New Branch\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/v1/branch/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "v1",
+                "branch",
+                "save"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Name",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": \"bef3a9de-6d00-4b69-99f2-386cbb36f5ce\",\n    \"name\": \"New Branch test 2\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/v1/branch/update-name",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "v1",
+                "branch",
+                "update-name"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Product",
+      "item": [
+        {
+          "name": "Save Copy",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"branchId\": \"bef3a9de-6d00-4b69-99f2-386cbb36f5ce\",\n    \"name\": \"Product test\",\n    \"stock\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/v1/product/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "v1",
+                "product",
+                "save"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Name",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": \"33b9787b-7985-4ad4-a210-d3482c58c82c\",\n    \"name\": \"Product edit name test\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/v1/product/update-name",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "v1",
+                "product",
+                "update-name"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Stock",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": \"33b9787b-7985-4ad4-a210-d3482c58c82c\",\n    \"stock\": 1000\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/v1/product/update-stock",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "v1",
+                "product",
+                "update-stock"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/v1/product/delete?product_id=68e7e660-b536-4d9b-b811-7762e2fbe5c6",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "v1",
+                "product",
+                "delete"
+              ],
+              "query": [
+                {
+                  "key": "product_id",
+                  "value": "68e7e660-b536-4d9b-b811-7762e2fbe5c6",
+                  "description": "real"
+                },
+                {
+                  "key": "product_id",
+                  "value": "036032a4-546f-4cc3-ae91-ee268b05736a",
+                  "description": "empty",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+services:
+  localstack:
+    image: localstack/localstack:3
+    container_name: localstack
+    ports:
+      - "4566:4566"
+      - "4510-4559:4510-4559"
+    environment:
+      #- SERVICES=s3
+      #- DEBUG=1
+      - AWS_DEFAULT_REGION=us-east-1
+      - AWS_ACCESS_KEY_ID=test
+      - AWS_SECRET_ACCESS_KEY=test
+    volumes:
+      - "./localstack:/var/lib/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: franchise_db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=franchise_management_db
+      - POSTGRES_USER=accenture_user
+      - POSTGRES_PASSWORD=accenture_pass
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: accenture_franchise_backend
+    ports:
+      - "8080:8080"
+    # Waits other service run
+    depends_on:
+      postgres:
+        condition: service_started
+      localstack:
+        condition: service_started
+    environment:
+      - APP_BASE_PATH=/api
+      - APP_API_VERSION=v1
+      - AWS_DEFAULT_REGION=us-east-1
+      - AWS_ACCESS_KEY_ID=test
+      - AWS_SECRET_ACCESS_KEY=test
+      # posgres service
+      - RDS_ENDPOINT=postgres:5432
+      - RDS_DB_NAME=franchise_management_db
+      - RDS_USERNAME=accenture_user
+      - RDS_PASSWORD=accenture_pass

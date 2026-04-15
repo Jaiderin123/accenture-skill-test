@@ -1,0 +1,44 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="MainApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <envs>
+      <env name="APP_API_VERSION" value="v1" />
+      <env name="APP_BASE_PATH" value="/api" />
+      <env name="AWS_ACCESS_KEY_ID" value="test" />
+      <env name="AWS_DEFAULT_REGION" value="us-east-1" />
+      <env name="AWS_SECRET_ACCESS_KEY" value="test" />
+      <env name="RDS_DB_NAME" value="franchise_management_db" />
+      <env name="RDS_ENDPOINT" value="localhost:5432" />
+      <env name="RDS_PASSWORD" value="accenture_pass" />
+      <env name="RDS_USERNAME" value="accenture_user" />
+      <env name="TF_VAR_aws_access_key" value="test" />
+      <env name="TF_VAR_aws_secret_key" value="test" />
+      <env name="TF_VAR_rds_db_name" value="franchise_management_db" />
+      <env name="TF_VAR_rds_user_db" value="accenture_user" />
+      <env name="TF_VAR_rds_user_pass" value="accenture_pass" />
+    </envs>
+    <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UnknownPolicyInFreeMode" />
+    <module name="com.accenture.assessment.app-service.main" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.accenture.assessment.MainApplication" />
+    <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="com.accenture.assessment.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <extension name="net.ashald.envfile">
+      <option name="IS_ENABLED" value="false" />
+      <option name="IS_SUBST" value="false" />
+      <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+      <option name="IS_IGNORE_MISSING_FILES" value="false" />
+      <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+      <ENTRIES>
+        <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        <ENTRY IS_ENABLED="true" PARSER="env" IS_EXECUTABLE="false" PATH=".env" />
+      </ENTRIES>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
