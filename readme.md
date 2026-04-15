@@ -14,13 +14,22 @@ mantenible y de alto rendimiento.
 
 ---
 
-## 🏗️ Arquitectura del Proyecto
+## 🏗️ Arquitectura del Proyecto (Clean Architecture)
 
-El proyecto implementa una estructura **Multi-módulo** siguiendo el patrón de Clean Architecture:
+El proyecto implementa una estructura **Multi-módulo** siguiendo estrictamente los principios de **Clean Architecture** y **Arquitectura Hexagonal**, organizando el código en capas concéntricas para garantizar el desacoplamiento de la lógica de negocio de la infraestructura técnica.
 
-* **`domain`**: Contiene la lógica de negocio pura (Models, Use Cases y Puertos).
-* **`infrastructure`**: Implementación de adaptadores (Persistence con R2DBC, Entry Points con WebFlux).
-* **`application`**: Configuración central y el punto de entrada de la aplicación (`app-service`).
+Se definieron los siguientes módulos de Gradle:
+
+* **`domain`**: El núcleo de la aplicación. Contiene la lógica pura del negocio.
+    * **`model`**: Incluye entidades de dominio (`Franchise`, `Branch`, `Product`), registros y la definición de **Puertos** (Interfaces Gateway) que definen el contrato que deben cumplir los adaptadores externos. También incluye las excepciones de negocio (`BusinessException`).
+
+* **`usecase`**: Contiene las **implementaciones** de los Casos de Uso del sistema. Aquí reside la orquestación de la lógica de aplicación, interactuando con las interfaces definidas en el módulo `model` sin conocer detalles técnicos de persistencia o transporte.
+
+* **`infrastructure`**: Capa de detalles técnicos y adaptadores externos.
+    * **`driven-adapters/reactive-persistence`**: Implementación de los adaptadores de base de datos. Contiene entidades de persistencia (`Entity`), mappers, repositorios asíncronos (`R2dbcRepository`) y los **Adaptadores** finales que implementan los gateways del dominio usando R2DBC.
+    * **`entry-points/reactive-web`**: Implementación del punto de entrada HTTP. Contiene los DTOs, Handlers funcionales y las configuraciones de ruta (`RouterConfig`) usando Spring WebFlux para un manejo no bloqueante de peticiones.
+
+* **`application`**: Módulo `app-service`. Es el orquestador principal del arranque. Contiene las clases de **Configuración** (`BranchUseCaseConfig`, etc.) encargadas de realizar la inyección de dependencias de los adaptadores en los Use Cases, y la clase `MainApplication` para iniciar el contexto de Spring Boot.
 
 ---
 
