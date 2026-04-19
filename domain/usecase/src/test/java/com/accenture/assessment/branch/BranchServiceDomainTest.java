@@ -102,7 +102,7 @@ class BranchServiceDomainTest {
         StepVerifier.create(branchServiceDomain.assertIdExists(branchId))
                 .expectErrorMatches(ex ->
                         ex instanceof BusinessException &&
-                                ex.getMessage().equals("Branch already exists"))
+                                ex.getMessage().equals("Branch doesn't exist"))
                 .verify();
     }
 }

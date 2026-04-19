@@ -33,7 +33,7 @@ public class BranchServiceDomain {
                 .flatMap(exists ->
                         !exists
                         ?
-                        Mono.error(new BusinessException("Branch doesn't exists"))
+                        Mono.error(new BusinessException("Branch doesn't exist"))
                         :
                         Mono.empty());
     }

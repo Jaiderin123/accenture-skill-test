@@ -78,7 +78,7 @@ class ProductServiceDomainTest {
         StepVerifier.create(productServiceDomain.assertIdExists(productId))
                 .expectErrorMatches(ex ->
                         ex instanceof BusinessException &&
-                                ex.getMessage().equals("Product don't exists"))
+                                ex.getMessage().equals("Product doesn't exist"))
                 .verify();
     }
 

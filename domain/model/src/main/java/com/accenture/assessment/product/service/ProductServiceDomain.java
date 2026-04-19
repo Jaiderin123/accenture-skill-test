@@ -28,7 +28,7 @@ public class ProductServiceDomain {
                 .flatMap(exists ->
                         !exists
                         ?
-                        Mono.error(new BusinessException("Product don't exists"))
+                        Mono.error(new BusinessException("Product doesn't exist"))
                         : Mono.empty()
                 );
     }

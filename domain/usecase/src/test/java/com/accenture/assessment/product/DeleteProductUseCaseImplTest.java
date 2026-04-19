@@ -53,12 +53,12 @@ class DeleteProductUseCaseImplTest {
     @Test
     void delete_whenProductDoesNotExist_shouldThrowBusinessException() {
         when(productServiceDomain.assertIdExists(productId))
-                .thenReturn(Mono.error(new BusinessException("Product don't exists")));
+                .thenReturn(Mono.error(new BusinessException("Product doesn't exist")));
 
         StepVerifier.create(deleteProductUseCase.delete(productId))
                 .expectErrorMatches(ex ->
                         ex instanceof BusinessException &&
-                                ex.getMessage().equals("Product don't exists"))
+                                ex.getMessage().equals("Product doesn't exist"))
                 .verify();
 
         verify(productRepository, never())

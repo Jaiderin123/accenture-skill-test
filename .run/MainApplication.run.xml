@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="MainApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
     <envs>
-      <env name="APP_API_VERSION" value="v1" />
+      <env name="APP_API_VERSION" value="/v1" />
       <env name="APP_BASE_PATH" value="/api" />
       <env name="AWS_ACCESS_KEY_ID" value="test" />
       <env name="AWS_DEFAULT_REGION" value="us-east-1" />

@@ -1,13 +1,13 @@
 spring:
   application:
     name: accenture-skill-test
-    base-path: ${APP_BASE_PATH}
-    api-version: ${APP_API_VERSION}
+    #base-path: ${APP_BASE_PATH}
+    #api-version: ${APP_API_VERSION}
   r2dbc:
     url: r2dbc:postgresql://${RDS_ENDPOINT}/${RDS_DB_NAME}
     username: ${RDS_USERNAME}
     password: ${RDS_PASSWORD}
 app:
   webflux:
-    base-path: /api
-    api-version: /v1
+    base-path: ${APP_BASE_PATH}
+    api-version: ${APP_API_VERSION}
